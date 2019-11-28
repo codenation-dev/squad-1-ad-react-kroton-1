@@ -10,31 +10,26 @@ class User extends Model {
           defaultValue: DataTypes.UUIDV4,
           primaryKey: true,
         },
-        name: Sequelize.STRING,
-        email: Sequelize.STRING,
-        password: Sequelize.VIRTUAL,
-        password_hash: Sequelize.STRING,
+        log_environment: Sequelize.STRING,
+        log_source: Sequelize.STRING,
+        log_date: Sequelize.DATE,
+        log_type: Sequelize.STRING,
+        log_title: Sequelize.STRING,
+        log_description: Sequelize.STRING,
       },
       {
         sequelize,
       }
     );
 
-    this.addHook('beforeSave', async user => {
-      if (user.password) {
-        user.password_hash = await bcrypt.hash(user.password, 8);
-      }
-    });
-
     return this;
   }
 
   static associate(models) {
-    this.hasMany(models.Log);
-  }
-
-  checkPassword(password) {
-    return bcrypt.compare(password, this.password_hash);
+    this.belongsTo(models.User, {
+      foreignKey: 'user_id',
+      as: 'user',
+    });
   }
 }
 
