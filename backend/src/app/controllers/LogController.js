@@ -4,17 +4,14 @@ import User from '../models/User';
 
 class LogController {
   async index(req, res) {
-    const { page = 1, limit = 20 } = req.query;
     const logs = await Log.findAll({
       include: [
         {
           model: User,
-          as: 'organizer',
+          as: 'user',
           attributes: ['id', 'name'],
         },
       ],
-      limit,
-      offset: (page - 1) * 10,
     });
 
     return res.json(logs);
@@ -28,7 +25,7 @@ class LogController {
       log_type: Yup.string(),
       log_title: Yup.string().required(),
       log_description: Yup.string(),
-      log_quantity: Yup.integer().positive(),
+      log_quantity: Yup.number().positive(),
     });
 
     if (!(await schema.isValid(req.body))) {
@@ -50,7 +47,7 @@ class LogController {
       log_type: Yup.string(),
       log_title: Yup.string(),
       log_description: Yup.string(),
-      log_quantity: Yup.integer().positive(),
+      log_quantity: Yup.number().positive(),
       archived: Yup.boolean(),
     });
 
@@ -81,7 +78,7 @@ class LogController {
 
     await log.destroy();
 
-    return res.status().json({ ok: 'Log excluído com sucesso' });
+    return res.status(200).json({ ok: 'Log excluído com sucesso' });
   }
 }
 
