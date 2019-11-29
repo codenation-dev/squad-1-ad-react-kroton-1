@@ -1,5 +1,4 @@
 import Sequelize, { Model } from 'sequelize';
-import bcrypt from 'bcryptjs';
 
 class User extends Model {
   static init(sequelize, DataTypes) {
@@ -16,6 +15,8 @@ class User extends Model {
         log_type: Sequelize.STRING,
         log_title: Sequelize.STRING,
         log_description: Sequelize.STRING,
+        log_quantity: Sequelize.NUMBER,
+        archived: Sequelize.BOOLEAN,
       },
       {
         sequelize,
