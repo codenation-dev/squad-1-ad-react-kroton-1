@@ -22,4 +22,4 @@ COPY .env .
 
 EXPOSE 3333
 
-CMD ["node", "dist/server.js"]
+CMD ["yarn", "start"]
