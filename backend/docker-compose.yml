@@ -1,0 +1,38 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    ports:
+      - '5432:5432'
+    networks:
+      - kroton
+    environment:
+      - POSTGRES_DB=krotonreact
+      - POSTGRES_USER=krotonreact
+      - POSTGRES_PASSWORD=krotonreact
+  backend:
+    image: felipealves.tech/docker-test
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - migration
+    ports:
+      - '3333:3333'
+    links:
+      - db
+    networks:
+      - kroton
+  migration:
+    build: .
+    image: felipealves.tech/docker-test
+    command: './wait-for-it.sh db:5432 -- yarn migrate'
+    environment:
+      - DB_HOST=db
+    links:
+      - db
+    depends_on:
+      - db
+    networks:
+      - kroton
+networks:
+  kroton: null
