@@ -24,7 +24,6 @@ function Main()  {
                 <i className="glyphicon glyphicon-search"></i>
                 <input className='inputPesquisar' placeholder="Pesquisar"/>
 
-
             </form>
 
             <main id="list-erros">

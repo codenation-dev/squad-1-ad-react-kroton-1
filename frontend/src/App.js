@@ -16,7 +16,9 @@ function App()  {
       <Navbar></Navbar>
       <main className="jumbotron">
         <div className="main-painel-erros">
-          <div className="main-painel-erros">{MostraPainel}</div>
+          <div className="main-painel-erros">
+            {MostraPainel}
+          </div>
         </div>
       </main>
     </div>
