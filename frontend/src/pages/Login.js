@@ -4,9 +4,17 @@ import fotoLogo from '../img/avatar.png'
 import './login.css'
 
 
-export default function Login(){
+export default function Login({history}){
     
     const [titulo,setTitulo] = useState('Login')
+
+    function handleSubmit(e){
+        e.preventDefault()
+
+        history.push('/painel')
+
+    }
+
 
     return (
         
@@ -16,8 +24,8 @@ export default function Login(){
                 <h3>{titulo}</h3>
                 <input placeholder="Digite o e-mail cadastrado"></input>
                 <input placeholder="Digite sua senha"></input>
-                <button type="submit">Login</button>
-                <a href='#'>Esqueci minha senha</a>
+                <button type="submit" onClick={handleSubmit}>Login</button>
+                <a href=''>Esqueci minha senha</a>
                
             </form>
 

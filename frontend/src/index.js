@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App.js'
-import Login from './pages/Login'
-import Cadastro from './pages/Cadastro'
 import './index.css'
+import Routes from './Routes.js';
 
 
 ReactDOM.render(
-    <App/>,
+    <Routes/>,
     document.getElementById('root')
 );
