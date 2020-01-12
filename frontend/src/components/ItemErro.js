@@ -6,10 +6,13 @@ import './itemErro.css'
 function ItemErro()  {
     const listaItens = itensErro.map((itens) => 
 
-        <div className="item-list-erro">
-            <span>{itens.codigo}</span>
-            <span>{itens.descricao}</span>
-        </div>
+        <ul className="item-list-erro jumbotron">
+            <li>
+                <span>{itens.codigo}</span>
+                <span>{itens.descricao}</span>
+                <span>{itens.eventos}</span>
+            </li>
+        </ul>
 
     )
     return (

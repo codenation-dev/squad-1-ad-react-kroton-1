@@ -2,22 +2,21 @@ import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar'
 import Main from './components/Main'
+import './app.css'
 import './components/Main.css'
 
 
 function App()  {
 
-  const titles = ["Produção","Homologação","Dev"]
-  const MostraPainel = titles.map((title) => (
-    <Main>{title.titles}</Main>
-  ))
+  const [title,setTitle] = useState([])
+  
   return (
     <div className="app">
       <Navbar></Navbar>
       <main className="jumbotron">
         <div className="main-painel-erros">
           <div className="main-painel-erros">
-            {MostraPainel}
+            <Main title={setTitle}></Main>
           </div>
         </div>
       </main>
