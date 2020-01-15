@@ -1,0 +1,7 @@
+.LogoComponent{
+    width: 130px;
+}
+
+.LogoComponent.small{
+    width: 100px;
+}

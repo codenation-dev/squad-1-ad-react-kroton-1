@@ -2,7 +2,7 @@ import React from "react";
 
 import InputComponent from '../../components/InputComponent/InputComponent'
 import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
-import logo from '../../img/icon.png'
+import LogoComponent from '../../components/LogoComponent/LogoComponent'
 import './LoginContainer.css'
 
 /*
@@ -14,7 +14,7 @@ import './LoginContainer.css'
 export default function LoginContainer(props) {
   return (
     <div className="LoginContainer">
-        <img src={logo} alt="logo"/>
+        <LogoComponent />
        <form id="form-login">   
         <InputComponent type="text"  placeholder="Email"/>
         <InputComponent type="password" placeholder="Senha" />

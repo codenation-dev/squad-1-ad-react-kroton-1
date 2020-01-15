@@ -1,5 +1,6 @@
 .LoginContainer {
   max-width: 350px;
+  min-width: 250px;
   background-color: #f5f5f5;
   padding: 1em;
   border-radius: 5px;
@@ -23,6 +24,5 @@
 }
 
 .LoginContainer .InputComponent:active, .InputComponent:focus{
-    
     background-color: #fff;
 }
