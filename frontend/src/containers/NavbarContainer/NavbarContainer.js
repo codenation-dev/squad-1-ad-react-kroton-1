@@ -4,6 +4,12 @@ import LogoComponent from '../../components/LogoComponent/LogoComponent'
 import logoUser from '../../img/avatar.png'
 import './NavbarContainer.css'
 
+
+/*
+ * Criado em: 15/01/20
+ * Modificado em : 15/01/20
+ * Container do Cabecalho da pagina do Painel
+ */
 function NavbarContainer() {
 
     const [nomeUser, setNomeUSer] = useState('Nome User')
