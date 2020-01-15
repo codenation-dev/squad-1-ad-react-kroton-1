@@ -3,6 +3,8 @@ import {useState} from 'react'
 import fotoLogo from '../img/avatar.png'
 import './login.css'
 
+import LoginContainer from '../containers/LoginContainer/LoginContainer.js'
+
 
 export default function Login({history}){
     
@@ -17,9 +19,10 @@ export default function Login({history}){
 
 
     return (
+        <LoginContainer />
         
 
-        <div className="login-container">
+       /*  <div className="login-container">
             <form className='jumbotron'>
                 <h3>{titulo}</h3>
                 <input placeholder="Digite o e-mail cadastrado"></input>
@@ -29,7 +32,7 @@ export default function Login({history}){
                
             </form>
 
-        </div>
+        </div> */
 
     )
 
