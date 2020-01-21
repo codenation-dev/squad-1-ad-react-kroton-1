@@ -1,27 +1,16 @@
-import React, {useState} from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Navbar from './components/Navbar'
-import Main from './components/Main'
-import './app.css'
-import './components/Main.css'
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
+import Routes from './routes';
+import GlobalStyle from './styles/global';
 
-function App()  {
-
-  const [title,setTitle] = useState([])
-  
+function App() {
   return (
-    <div className="app">
-      <Navbar></Navbar>
-      <main className="jumbotron">
-        <div className="main-painel-erros">
-          <div className="main-painel-erros">
-            <Main title={setTitle}></Main>
-          </div>
-        </div>
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes />
+      <GlobalStyle />
+    </BrowserRouter>
   );
 }
 
-export default App
+export default App;
