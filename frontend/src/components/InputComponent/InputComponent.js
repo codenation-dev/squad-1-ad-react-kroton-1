@@ -1,16 +1,20 @@
 import React from 'react';
 
-import './InputComponent.css'
+import { Input } from './InputStyle';
 
-export default function InputComponent(props){
-
-    const {type, disabled, placeholder  }= props;
-
-    return <input 
-            className="InputComponent"
-            type={type ? type :'text'}
-            placeholder = {placeholder? placeholder: ''}
-            disabled ={disabled}
-        />
-    
+export default function InputComponent({
+  type,
+  disabled,
+  placeholder,
+  ...rest
+}) {
+  return (
+    <Input
+      className="InputComponent"
+      type={type || 'text'}
+      placeholder={placeholder || ''}
+      disabled={disabled}
+      {...rest}
+    />
+  );
 }

@@ -1,40 +1,32 @@
-import React from 'react'
-import {useState} from 'react'
-import fotoLogo from '../img/avatar.png'
-import './login.css'
+import React, { useState } from 'react';
+import './login.css';
 
-import LoginContainer from '../containers/LoginContainer/LoginContainer.js'
+import { LoginContainer } from '../../containers';
 
+export default function Login({ history }) {
+  const [login, setLogin] = useState({
+    email: '',
+    password: '',
+  });
 
-export default function Login({history}){
-    
-    const [titulo,setTitulo] = useState('Login')
+  function handleChange(e) {
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value,
+    });
+  }
 
-    function handleSubmit(e){
-        e.preventDefault()
+  function handleSubmit(e) {
+    e.preventDefault();
 
-        history.push('/painel')
+    history.push('/painel');
+  }
 
-    }
-
-
-    return (
-        <LoginContainer />
-        
-
-       /*  <div className="login-container">
-            <form className='jumbotron'>
-                <h3>{titulo}</h3>
-                <input placeholder="Digite o e-mail cadastrado"></input>
-                <input placeholder="Digite sua senha"></input>
-                <button type="submit" onClick={handleSubmit}>Login</button>
-                <a href=''>Esqueci minha senha</a>
-               
-            </form>
-
-        </div> */
-
-    )
-
-
+  return (
+    <LoginContainer
+      login={login}
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+    />
+  );
 }

@@ -1,25 +1,30 @@
-import React from "react";
+import React from 'react';
 
-import InputComponent from '../../components/InputComponent/InputComponent'
-import ButtonComponent from '../../components/ButtonComponent/ButtonComponent'
-import LogoComponent from '../../components/LogoComponent/LogoComponent'
-import './LoginContainer.css'
+import { Input, Button, Logo } from '../../components';
+import './LoginContainer.css';
+import { Container } from './LoginStyle';
 
-/*
- * Criado em: 15/01/20
- * Modificado em : 15/01/20
- * Container dde Login do Inicio da Aplicação
- */
-
-export default function LoginContainer(props) {
+export default function LoginContainer({ login, onChange, onSubmit }) {
   return (
-    <div className="LoginContainer">
-        <LogoComponent />
-       <form id="form-login">   
-        <InputComponent type="text"  placeholder="Email"/>
-        <InputComponent type="password" placeholder="Senha" />
-        <ButtonComponent type="submit" value="Enviar" form="form-login" text="Login"/>
+    <Container>
+      <Logo />
+      <form id="form-login" onSubmit={onSubmit}>
+        <Input
+          type="text"
+          placeholder="Email"
+          name="email"
+          value={login.email}
+          onChange={e => onChange(e)}
+        />
+        <Input
+          type="password"
+          placeholder="Senha"
+          name="password"
+          value={login.password}
+          onChange={onChange}
+        />
+        <Button type="submit" value="Enviar" form="form-login" text="Login" />
       </form>
-    </div>
+    </Container>
   );
 }
