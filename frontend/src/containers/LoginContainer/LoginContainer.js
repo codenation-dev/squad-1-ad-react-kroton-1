@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Input, Button, Logo } from '../../components';
-import './LoginContainer.css';
 import { Container } from './LoginStyle';
 
 export default function LoginContainer({ login, onChange, onSubmit }) {
