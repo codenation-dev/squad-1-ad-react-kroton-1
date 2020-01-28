@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Navbar from '../components/Navbar'
+import NavbarContainer from '../containers/NavbarContainer/NavbarContainer'
 import Main from '../components/Main'
 import './painel.css'
 
@@ -11,7 +11,7 @@ function Painel()  {
   
   return (
     <div className="app">
-      <Navbar></Navbar>
+      <NavbarContainer></NavbarContainer>
       <main className="jumbotron">
         <div className="main-painel-erros">
           <div className="main-painel-erros">
