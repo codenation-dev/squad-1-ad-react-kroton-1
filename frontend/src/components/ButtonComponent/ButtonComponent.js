@@ -1,17 +1,21 @@
 import React from 'react';
+import { Button } from './ButtonStyle';
 
-import './ButtonComponent.css'
+export default function ButtonComponent(props) {
+  const { type, value, text, disabled, form, icon, ...rest } = props;
 
-export default function ButtonComponent(props){
-
-    const {type, value, text ,disabled, form }= props;
-
-    return <button 
-            className="ButtonComponent"
-            type={type ? type :'button'}
-            form={form ? form :''}
-            value = {value? value: ''}
-            disabled={disabled}
-        >{text}</button>
-    
+  return (
+    <Button
+      className="ButtonComponent"
+      type={type || 'button'}
+      form={form || ''}
+      value={value || ''}
+      disabled={disabled}
+      elements={icon ? 1 : 0}
+      {...rest}
+    >
+      {icon}
+      {text}
+    </Button>
+  );
 }

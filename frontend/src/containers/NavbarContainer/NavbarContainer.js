@@ -1,35 +1,27 @@
-import React, { useState } from 'react'
-import LogoComponent from '../../components/LogoComponent/LogoComponent'
+import React, { useState } from 'react';
+import { Logo } from '../../components';
 
-import logoUser from '../../img/avatar.png'
-import './NavbarContainer.css'
+import logoUser from '../../img/avatar.png';
+import { Navbar, UserContainer } from './NavbarStyle';
 
-
-/*
- * Criado em: 15/01/20
- * Modificado em : 15/01/20
- * Container do Cabecalho da pagina do Painel
- */
 function NavbarContainer() {
+  const [nomeUser, setNomeUser] = useState('Nome User');
+  const [token, setToken] = useState('Token');
 
-    const [nomeUser, setNomeUSer] = useState('Nome User')
-    const [token, setToken] = useState('Token')
-
-    return (
-        <nav className="NavbarContainer">
-            <LogoComponent small white />
-            <div className="user-container">
-            <div className="photo-nav ">
-                <img src={logoUser} alt="avatar" width='50' height='50' />
-            </div>
-            <div className="dados-user-nav">
-                <span>Olá {nomeUser}</span>
-                <span>{token}</span>
-            </div>
-            </div>
-           
-        </nav>
-    );
+  return (
+    <Navbar>
+      <Logo small white />
+      <UserContainer>
+        <div>
+          <img src={logoUser} alt="avatar" width="50" height="50" />
+        </div>
+        <div>
+          <span>Olá {nomeUser}</span>
+          <span>{token}</span>
+        </div>
+      </UserContainer>
+    </Navbar>
+  );
 }
 
 export default NavbarContainer;
