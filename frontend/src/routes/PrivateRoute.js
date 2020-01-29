@@ -9,13 +9,13 @@ export default function PrivateRoute({
   ...rest
 }) {
   // const { signed } = store.getState().auth;
-  const signed = true;
+  const signed = false;
 
   if (!signed && isPrivate) {
     return <Redirect to="/" />;
   }
 
-  if (signed && !isPrivate) {
+  if (signed && rest.path === '/') {
     return <Redirect to="/painel" />;
   }
 

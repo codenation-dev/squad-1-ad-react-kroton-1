@@ -10,7 +10,6 @@ export default function InputComponent({
 }) {
   return (
     <Input
-      className="InputComponent"
       type={type || 'text'}
       placeholder={placeholder || ''}
       disabled={disabled}

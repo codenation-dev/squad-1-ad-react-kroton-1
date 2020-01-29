@@ -16,7 +16,7 @@ export default function Routes() {
         path="/404"
         component={() => <div>404 - Not Found</div>}
       />
-      <PrivateRoute path="*" render={() => <Redirect to="/404" />} />
+      <PrivateRoute path="*" component={() => <Redirect to="/404" />} />
     </Switch>
   );
 }

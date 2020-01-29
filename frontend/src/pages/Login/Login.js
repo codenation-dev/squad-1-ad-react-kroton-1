@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import './login.css';
 
-import { LoginContainer } from '../../containers';
+import { FormContainer } from '../../containers';
 
 export default function Login({ history }) {
   const [login, setLogin] = useState({
@@ -23,10 +22,11 @@ export default function Login({ history }) {
   }
 
   return (
-    <LoginContainer
+    <FormContainer
       login={login}
       onSubmit={handleSubmit}
       onChange={handleChange}
+      buttonText="Login"
     />
   );
 }

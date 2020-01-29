@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
-import Main from '../../components/Main';
+import { MdAdd, MdSearch } from 'react-icons/md';
 
-import { Container } from './PainelStyle';
+import { Container, Actions } from './PainelStyle';
+import { ListContainer } from '../../containers';
+import { Button, Input } from '../../components';
 
 function Painel() {
   const [title, setTitle] = useState([]);
 
   return (
     <Container>
-      <Main />
+      <Actions>
+        <Button type="submit" value="Enviar" text="Incluir" icon={<MdAdd />} />
+        <form>
+          <MdSearch size={20} />
+          <Input placeholder="Pesquisar" />
+          <input type="submit" hidden />
+        </form>
+      </Actions>
+
+      <ListContainer />
     </Container>
   );
 }

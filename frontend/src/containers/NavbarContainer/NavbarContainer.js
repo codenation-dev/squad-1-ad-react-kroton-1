@@ -5,7 +5,7 @@ import logoUser from '../../img/avatar.png';
 import { Navbar, UserContainer } from './NavbarStyle';
 
 function NavbarContainer() {
-  const [nomeUser, setNomeUSer] = useState('Nome User');
+  const [nomeUser, setNomeUser] = useState('Nome User');
   const [token, setToken] = useState('Token');
 
   return (

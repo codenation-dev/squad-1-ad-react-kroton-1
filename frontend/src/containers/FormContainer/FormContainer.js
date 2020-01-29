@@ -1,13 +1,19 @@
 import React from 'react';
 
 import { Input, Button, Logo } from '../../components';
-import { Container } from './LoginStyle';
+import { Container } from './FormStyle';
 
-export default function LoginContainer({ login, onChange, onSubmit }) {
+export default function FormContainer({
+  login,
+  onChange,
+  onSubmit,
+  buttonText,
+  link,
+}) {
   return (
     <Container>
       <Logo />
-      <form id="form-login" onSubmit={onSubmit}>
+      <form id="form-container" onSubmit={onSubmit}>
         <Input
           type="text"
           placeholder="Email"
@@ -22,7 +28,13 @@ export default function LoginContainer({ login, onChange, onSubmit }) {
           value={login.password}
           onChange={onChange}
         />
-        <Button type="submit" value="Enviar" form="form-login" text="Login" />
+        <Button
+          type="submit"
+          value="Enviar"
+          form="form-container"
+          text={buttonText}
+        />
+        {link}
       </form>
     </Container>
   );

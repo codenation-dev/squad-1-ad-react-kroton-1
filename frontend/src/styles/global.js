@@ -4,8 +4,8 @@ export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=flow');
 
   * {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     outline: 0;
     box-sizing: border-box;
   }
@@ -15,7 +15,7 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    min-height: 100%;
+    height: 100%
   }
 
   body {

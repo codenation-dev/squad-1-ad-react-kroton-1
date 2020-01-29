@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 
-import fotoLogo from '../../img/avatar.png';
-import './cadastro.css';
+import { FormContainer } from '../../containers';
 
-export default function Cadastro({ history }) {
-  const [titulo, setTitulo] = useState('Cadastro');
+export default function Login({ history }) {
+  const [login, setLogin] = useState({
+    email: '',
+    password: '',
+  });
+
+  function handleChange(e) {
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value,
+    });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    history.push('/login');
+    history.push('/');
   }
+
   return (
-    <div className="cadastro-container">
-      <form className="jumbotron">
-        <h3>{titulo}</h3>
-        <input placeholder="Digite seu e-mail" />
-        <input placeholder="Crie uma senha" type="password" />
-        <button type="submit" onClick={handleSubmit}>
-          Cadastrar
-        </button>
-        <a href="/login">Já sou cadastrado</a>
-      </form>
-    </div>
+    <FormContainer
+      login={login}
+      onSubmit={handleSubmit}
+      onChange={handleChange}
+      buttonText="Cadastrar"
+    />
   );
 }
