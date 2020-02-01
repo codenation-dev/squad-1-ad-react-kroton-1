@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import { FormContainer } from '../../containers';
+import { SignContainer } from '../../containers';
+import api from '../../services/api';
 
 export default function Login({ history }) {
   const [login, setLogin] = useState({
+    name: '',
     email: '',
     password: '',
   });
@@ -15,18 +19,33 @@ export default function Login({ history }) {
     });
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    history.push('/');
+    if (login.name === '' || login.email === '' || login.password === '') {
+      toast.error('Preencha todos os dados do formulário!');
+    } else {
+      try {
+        await api.post('/users', login);
+        toast.success('Cadastro criado com sucesso');
+        history.push('/');
+      } catch (error) {
+        if (error.response.data.error) {
+          toast.error(`erro no servidor: ${error.response.data.error}`);
+        } else {
+          toast.error('erro no servidor: Inexplicable Error!');
+        }
+      }
+    }
   }
 
   return (
-    <FormContainer
+    <SignContainer
       login={login}
       onSubmit={handleSubmit}
       onChange={handleChange}
       buttonText="Cadastrar"
+      link={<Link to="/">Já tenho uma conta</Link>}
     />
   );
 }
