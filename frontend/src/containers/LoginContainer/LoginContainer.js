@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Input, Button, Logo } from '../../components';
-import { Container } from './FormStyle';
+import { Container } from './LoginStyle';
 
 export default function FormContainer({
   login,
@@ -19,7 +19,7 @@ export default function FormContainer({
           placeholder="Email"
           name="email"
           value={login.email}
-          onChange={e => onChange(e)}
+          onChange={onChange}
         />
         <Input
           type="password"
