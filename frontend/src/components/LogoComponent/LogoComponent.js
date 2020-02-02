@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../img/icon.png';
-import logoWhite from '../../img/icon_white.png';
+import logo from '../../img/logo.png';
+import logoWhite from '../../img/logo.png';
 
 import { Logo } from './LogoStyle';
 
