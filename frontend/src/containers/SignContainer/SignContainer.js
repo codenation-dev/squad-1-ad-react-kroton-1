@@ -13,6 +13,7 @@ export default function SignContainer({
   return (
     <Container>
       <Logo />
+      <h3>BUG CONTROL</h3>
       <form id="form-container" onSubmit={onSubmit}>
         <Input
           type="text"

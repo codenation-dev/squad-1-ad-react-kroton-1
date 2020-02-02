@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 100%;
-  max-width: 350px;
-  min-width: 250px;
-  background-color: #f5f5f5;
+  max-width: 500px;
+  min-width: 300px;
+  background-color: #fff;
   padding: 1em;
   border-radius: 5px;
   box-shadow: 0px 0px 17px 0px rgba(199, 199, 199, 1);

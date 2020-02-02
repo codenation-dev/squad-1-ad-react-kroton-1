@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   height: 100%;
   background: linear-gradient(
     0deg,
-    ${rgba('#a20000', 0.2)},
-    ${rgba('#a20000', 0.1)}
+    ${rgba('#CFBCF6', 0.2)},
+    ${rgba('#CFBCF6', 0.1)}
   );
   overflow-y: scroll;
 `;
@@ -16,3 +16,4 @@ export const Content = styled.div`
   justify-content: center;
   align-items: flex-start;
 `;
+
