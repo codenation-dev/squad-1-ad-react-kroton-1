@@ -3,7 +3,7 @@ import { MdAdd, MdSearch, MdDeleteForever,MdExpandLess,MdExpandMore } from 'reac
 
 import { Container, Actions, TitleContainer, OpcaoAmbiente } from './PainelStyle';
 import { ListContainer } from '../../containers';
-import { Button, Input, Card } from '../../components';
+import { Button, Input } from '../../components';
 
 function Painel() {
   const [title, setTitle] = useState([]);
@@ -18,33 +18,33 @@ function Painel() {
           <Input placeholder="Pesquisar" />
           <input type="submit" hidden />
         </form>
-          
+
         <Button type="submit" value="Enviar" text="Incluir" icon={<MdAdd />} />
-        
-        
+
+
       </Actions>
       <OpcaoAmbiente>
           <Button type="submit" value="Enviar" text="Produção"/>
           <Button type="submit" value="Enviar" text="Homologação"/>
           <Button type="submit" value="Enviar" text="Dev"/>
       </OpcaoAmbiente>
-      
+
       <TitleContainer>
-          
+
           <span>
-            
+
             Level
             <MdExpandLess type='submit'/>
             <MdExpandMore type='submit'/>
           </span>
-          
+
           <span>
-            
+
             Descrição
             <MdExpandLess type='submit'/>
             <MdExpandMore type='submit'/>
           </span>
-          
+
           <span>
             Eventos
             <MdExpandLess type='submit'/>
