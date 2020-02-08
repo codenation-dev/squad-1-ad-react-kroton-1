@@ -4,8 +4,9 @@ import { toast } from 'react-toastify';
 
 import { SignContainer } from '../../containers';
 import api from '../../services/api';
+import history from '../../services/history';
 
-export default function Login({ history }) {
+export default function Cadastro() {
   const [login, setLogin] = useState({
     name: '',
     email: '',

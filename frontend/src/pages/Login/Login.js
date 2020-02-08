@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { signIn } from '../../store/ducks/auth';
 
 import { LoginContainer } from '../../containers';
-import api from '../../services/api';
 
-export default function Login({ history }) {
+export default function Login() {
   const [login, setLogin] = useState({
     email: '',
     password: '',
   });
+  const loading = useSelector(state => state.auth.loading);
+  const dispatch = useDispatch();
 
   function handleChange(e) {
     setLogin({
@@ -24,20 +27,7 @@ export default function Login({ history }) {
     if (login.email === '' || login.password === '') {
       toast.error('Preencha todos os dados de login!');
     } else {
-      try {
-        const response = await api.post('/sessions', login);
-        const { token } = response.data;
-
-        api.defaults.headers.Authorization = `Bearer ${token}`;
-
-        history.push('/painel');
-      } catch (error) {
-        if (error.response.data.error) {
-          toast.error(`erro no servidor: ${error.response.data.error}`);
-        } else {
-          toast.error('erro no servidor: Inexplicable Error!');
-        }
-      }
+      dispatch(signIn(login));
     }
   }
 
@@ -47,6 +37,7 @@ export default function Login({ history }) {
       onSubmit={handleSubmit}
       onChange={handleChange}
       buttonText="Login"
+      loading={loading}
       link={<Link to="/cadastro">Ainda não tenho uma conta</Link>}
     />
   );
