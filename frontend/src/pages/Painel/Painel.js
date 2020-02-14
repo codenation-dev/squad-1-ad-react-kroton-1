@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
-import { MdAdd, MdSearch, MdDeleteForever,MdExpandLess,MdExpandMore } from 'react-icons/md';
+import React, { useState, useEffect } from 'react';
+import {
+  MdAdd,
+  MdSearch,
+  MdDeleteForever,
+  MdExpandLess,
+  MdExpandMore,
+} from 'react-icons/md';
 
-import { Container, Actions, TitleContainer, OpcaoAmbiente } from './PainelStyle';
+import {
+  Container,
+  Actions,
+  TitleContainer,
+  OpcaoAmbiente,
+} from './PainelStyle';
 import { ListContainer } from '../../containers';
-import { Button, Input } from '../../components';
+import { Button, Input, OrderButton } from '../../components';
+
+import api from '../../services/api';
 
 function Painel() {
-  const [title, setTitle] = useState([]);
+  const [bugs, setBugs] = useState([]);
+
+  useEffect(() => {}, []);
 
   return (
     <Container>
       <Actions>
-        <Button type="submit" value="Apagar" text="Apagar" icon={<MdDeleteForever />} />
+        <Button
+          type="submit"
+          value="Apagar"
+          text="Apagar"
+          icon={<MdDeleteForever />}
+        />
 
         <form>
           <MdSearch size={20} />
@@ -20,36 +40,31 @@ function Painel() {
         </form>
 
         <Button type="submit" value="Enviar" text="Incluir" icon={<MdAdd />} />
-
-
       </Actions>
       <OpcaoAmbiente>
-          <Button type="submit" value="Enviar" text="Produção"/>
-          <Button type="submit" value="Enviar" text="Homologação"/>
-          <Button type="submit" value="Enviar" text="Dev"/>
+        <Button type="submit" value="Enviar" text="Produção" />
+        <Button type="submit" value="Enviar" text="Homologação" />
+        <Button type="submit" value="Enviar" text="Dev" />
       </OpcaoAmbiente>
 
       <TitleContainer>
+        <span>
+          Level
+          <OrderButton type="submit" icon={<MdExpandLess />} inverted />
+          <OrderButton type="submit" icon={<MdExpandMore />} inverted />
+        </span>
 
-          <span>
+        <span>
+          Descrição
+          <OrderButton type="submit" icon={<MdExpandLess />} inverted />
+          <OrderButton type="submit" icon={<MdExpandMore />} inverted />
+        </span>
 
-            Level
-            <MdExpandLess type='submit'/>
-            <MdExpandMore type='submit'/>
-          </span>
-
-          <span>
-
-            Descrição
-            <MdExpandLess type='submit'/>
-            <MdExpandMore type='submit'/>
-          </span>
-
-          <span>
-            Eventos
-            <MdExpandLess type='submit'/>
-            <MdExpandMore type='submit'/>
-          </span>
+        <span>
+          Eventos
+          <OrderButton type="submit" icon={<MdExpandLess />} inverted />
+          <OrderButton type="submit" icon={<MdExpandMore />} inverted />
+        </span>
       </TitleContainer>
       <ListContainer />
     </Container>

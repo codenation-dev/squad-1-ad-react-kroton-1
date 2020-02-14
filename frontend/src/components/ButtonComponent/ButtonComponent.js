@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from './ButtonStyle';
 
 export default function ButtonComponent(props) {
-  const { type, value, text, disabled, form, icon, ...rest } = props;
+  const { type, value, text, disabled, form, icon, inverted, ...rest } = props;
 
   return (
     <Button
@@ -12,6 +12,7 @@ export default function ButtonComponent(props) {
       value={value || ''}
       disabled={disabled}
       elements={icon ? 1 : 0}
+      inverted={inverted}
       {...rest}
     >
       {icon}
