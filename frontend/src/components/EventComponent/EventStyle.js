@@ -1,15 +1,11 @@
 import styled from 'styled-components';
 
-
-
 export const Container = styled.li`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  min-height: 100px;
-  max-height: 150px;
 
   font-size: 20px;
 
@@ -20,9 +16,9 @@ export const Container = styled.li`
   margin: 10px 0 0 0;
   padding: 5px 10px;
 
-  color : #7155A9;
-  border: 1px solid #7155A9;
-  box-shadow: 0 4px 2px -2px #7155A9;
+  color: #7155a9;
+  border: 1px solid #7155a9;
+  box-shadow: 0 4px 2px -2px #7155a9;
 
   input {
     margin-right: -30px;
@@ -32,5 +28,4 @@ export const Container = styled.li`
     min-width: 5%;
     margin-left: 50px;
   }
-
 `;

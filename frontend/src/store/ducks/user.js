@@ -1,3 +1,5 @@
+import produce from 'immer';
+
 // Action Types
 
 export const Types = {
@@ -6,30 +8,26 @@ export const Types = {
 };
 
 // Reducers
-
-const initialState = {
-  name: '',
-  email: '',
+const INITIAL_STATE = {
+  profile: null,
 };
 
-export default function user(state = initialState, action) {
-  switch (action.type) {
-    case Types.SIGNIN_SUCCESS:
-      return {
-        ...state,
-        name: action.payload.user.name,
-        email: action.payload.user.email,
-      };
-    case Types.SIGNOUT:
-      return {
-        ...state,
-        name: null,
-        email: null,
-      };
-    default:
-      return state;
-  }
+export default function user(state = INITIAL_STATE, action) {
+  return produce(state, draft => {
+    switch (action.type) {
+      case Types.SIGNIN_SUCCESS: {
+        draft.profile = action.payload.user;
+        break;
+      }
+      case Types.SIGNOUT: {
+        draft.profile = null;
+        break;
+      }
+      default:
+    }
+  });
 }
 
 // Action Creators
-// TODO: criar rota para update do profile?
+
+// Saga

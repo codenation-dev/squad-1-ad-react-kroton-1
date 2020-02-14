@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { signIn } from '../../store/ducks/auth';
+import { signInRequest } from '../../store/ducks/auth';
 
 import { LoginContainer } from '../../containers';
 
@@ -27,7 +27,7 @@ export default function Login() {
     if (login.email === '' || login.password === '') {
       toast.error('Preencha todos os dados de login!');
     } else {
-      dispatch(signIn(login));
+      dispatch(signInRequest(login.email, login.password));
     }
   }
 

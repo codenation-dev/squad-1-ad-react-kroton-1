@@ -8,7 +8,7 @@ import { Navbar, UserContainer, TitleContainer } from './NavbarStyle';
 import { signOut } from '../../store/ducks/auth';
 
 function NavbarContainer() {
-  const user = useSelector(state => state.user);
+  const user = useSelector(state => state.user.profile);
   const dispatch = useDispatch();
 
   return (
