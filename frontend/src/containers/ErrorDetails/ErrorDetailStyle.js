@@ -55,7 +55,17 @@ export const Container = styled.div`
   }
   #footer  {
     display: flex; 
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
+
+    #group-button {
+        display: flex;
+        flex-direction: row;
+
+        button {
+          margin-left: 10px;
+        }
+    }
   }
 `;

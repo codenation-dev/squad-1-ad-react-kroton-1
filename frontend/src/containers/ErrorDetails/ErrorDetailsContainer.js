@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MdArrowBack, MdClose,MdDeleteForever } from 'react-icons/md';
 import { Button } from '../../components';
 import { Container } from './ErrorDetailStyle';
 import history from '../../services/history'
+import api from '../../services/api'
 
 export default function ErrorDetailsContainer() {
 
   const [logDetails, setLogDetails] = useState([])
 
-  function handleClickBack(){
-    history.push('/painel')
+  const url = window.location.href.split('/')
+  const logId = url[4]
+  console.log(logId)
+
+
+  useEffect(async () => {
+
+    const res = await api.get(`/error/id/${logId}`)
+
+    setLogDetails(res)
+
+  },[])
+
+
+  async function handleClickBack(){
+    await history.push('/painel')
   }
 
   return (
@@ -34,7 +49,8 @@ export default function ErrorDetailsContainer() {
         
         <main id='main'>
           <p>Id</p>
-          <p>fdsjlkfjfsjfkdsjflks;jfsd</p>
+          <p>fdsjlkfjfsjfkdsjflks;jfsd
+          </p>
           <p>Tipo</p>
           <p>Warning</p>
           <p>Descrição</p>
