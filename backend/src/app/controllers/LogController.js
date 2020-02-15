@@ -17,6 +17,24 @@ class LogController {
     return res.json(logs);
   }
 
+  async show(req, res) {
+    const { log_id } = req.params;
+    const log = await Log.findByPk(log_id, {
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+
+    if (!log) {
+      return res.status(400).json({ error: 'O log não existe' });
+    }
+    return res.json(log);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       log_environment: Yup.string().required(),
