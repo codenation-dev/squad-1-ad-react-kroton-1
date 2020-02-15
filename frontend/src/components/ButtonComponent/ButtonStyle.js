@@ -13,6 +13,7 @@ export const Button = styled.button`
   justify-content: ${props => (props.elements ? 'space-between' : 'center')};
   align-items: center;
   font-family: 'Montserrat', sans-serif;
+  border: ${props => (props.inverted ? '1' : '0')};
 
   :hover {
     background-color: ${props =>

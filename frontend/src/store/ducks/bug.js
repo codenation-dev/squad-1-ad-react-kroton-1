@@ -10,6 +10,7 @@ export const Types = {
   LIST_REQUEST: 'bugs/LIST_REQUEST',
   LIST_SUCCESS: 'bugs/LIST_SUCCESS',
   LIST_FAILURE: 'bugs/LIST_FAILURE',
+  GETBUG: 'bugs/GETBUG',
   UPDATE_REQUEST: 'bugs/UPDATE_REQUEST',
   UPDATE_SUCCESS: 'bugs/UPDATE_SUCCESS',
   UPDATE_FAILURE: 'bugs/UPDATE_FAILURE',
@@ -42,13 +43,21 @@ export default function bug(state = INITIAL_STATE, action) {
         draft.loading = false;
         break;
       }
+      case Types.GETBUG: {
+        draft.currentBug = state.bugs
+          .filter(b => b.id === action.payload.id)
+          .shift();
+        break;
+      }
       case Types.UPDATE_REQUEST: {
         draft.loading = true;
         break;
       }
       case Types.UPDATE_SUCCESS: {
-        draft.bugs[action.payload.bug.id] = action.payload.bug;
-        draft.currentBug = action.payload.bug;
+        draft.bugs = state.bugs.map(b =>
+          b.id === action.payload.data.id ? action.payload.data : b
+        );
+        draft.currentBug = action.payload.data;
         draft.loading = false;
         break;
       }
@@ -84,10 +93,10 @@ export function updateBugRequest(data) {
   };
 }
 
-export function updateBugSuccess(profile) {
+export function updateBugSuccess(data) {
   return {
     type: Types.UPDATE_SUCCESS,
-    payload: { profile },
+    payload: { data },
   };
 }
 
@@ -116,9 +125,17 @@ export function listBugFailure() {
   };
 }
 
-export function deleteBugRequest() {
+export function getBug(id) {
+  return {
+    type: Types.GETBUG,
+    payload: { id },
+  };
+}
+
+export function deleteBugRequest(id) {
   return {
     type: Types.DELETE_REQUEST,
+    payload: { id },
   };
 }
 
@@ -179,17 +196,15 @@ export function* updateBugSaga({ payload }) {
 
 export function* deleteBugSaga({ payload }) {
   try {
-    const { name, email, password } = payload;
+    const { id } = payload;
 
-    yield call(api.post, 'users', {
-      name,
-      email,
-      password,
-    });
-    toast.success('Perfil criado com sucesso, agora acesse nossa plataforma!');
-    history.push('/');
+    yield call(api.delete, `logs/${id}`);
+
+    toast.success('Item excluído com sucesso!');
+    yield put(deleteBugSuccess(id));
+    history.push('/painel');
   } catch (err) {
-    toast.error('Falha no cadastro, verifique seus dados');
+    toast.error('Falha na exclusão');
     yield put(deleteBugFailure());
   }
 }
