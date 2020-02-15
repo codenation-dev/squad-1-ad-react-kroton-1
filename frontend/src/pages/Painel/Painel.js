@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   MdAdd,
   MdSearch,
@@ -12,16 +13,22 @@ import {
   Actions,
   TitleContainer,
   OpcaoAmbiente,
+  Loading,
 } from './PainelStyle';
 import { ListContainer } from '../../containers';
 import { Button, Input, OrderButton } from '../../components';
 
-import api from '../../services/api';
+import { listBugRequest } from '../../store/ducks/bug';
 
 function Painel() {
-  const [bugs, setBugs] = useState([]);
+  const loading = useSelector(state => state.bug.loading);
+  const bugs = useSelector(state => state.bug.bugs);
+  const dispatch = useDispatch();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(listBugRequest());
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Container>
@@ -66,7 +73,11 @@ function Painel() {
           <OrderButton type="submit" icon={<MdExpandMore />} inverted />
         </span>
       </TitleContainer>
-      <ListContainer />
+      {loading ? (
+        <Loading>Carregando...</Loading>
+      ) : (
+        <ListContainer list={bugs} />
+      )}
     </Container>
   );
 }
