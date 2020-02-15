@@ -17,23 +17,16 @@ function NavbarContainer() {
       <Logo small white />
       <TitleContainer>
         <h2>
-          <img 
-            id='logoBugControl'
-            src={logoBugControl}
-            alt="bug"
-            
-          />
+          <img id="logoBugControl" src={logoBugControl} alt="bug" />
         </h2>
       </TitleContainer>
       <UserContainer>
         <div>
-          <img
-          id='logoUser' 
-          src={logoUser} alt="avatar"/>
+          <img id="logoUser" src={logoUser} alt="avatar" />
         </div>
         <div>
-          <span>Olá Usário</span>
-          <span>e-mail</span>
+          <span>{user.name}</span>
+          <span>{user.email}</span>
         </div>
         <div>
           <Button

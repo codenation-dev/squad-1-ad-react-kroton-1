@@ -27,23 +27,21 @@ export const TitleContainer = styled.div`
   margin: 5px 0 0 0;
   padding: 5px 15px;
 
-  color : #7155A9;
-  border: 1px solid #7155A9;
+  color: #7155a9;
+  border: 1px solid #7155a9;
   box-shadow: 9px 7px 5px rgba('#7155A9');
 
   span {
     display: flex;
     flex-direction: row;
-    
-    
+
     svg {
       align-items: center;
-      margim: 0px 30px;
+      margin: 0px 30px;
       width: 30px;
       height: 30px;
     }
   }
-
 `;
 
 export const OpcaoAmbiente = styled.div`
@@ -61,9 +59,8 @@ export const OpcaoAmbiente = styled.div`
   margin: 5px 0 0 0;
   padding: 5px 15px;
 
-  color : #7155A9;
-  border: 1px solid #7155A9;
-  
+  color: #7155a9;
+  border: 1px solid #7155a9;
 
   span {
     display: flex;
@@ -72,9 +69,18 @@ export const OpcaoAmbiente = styled.div`
     button {
       background-color: #fff;
     }
-  
   }
-
 `;
 
+export const Loading = styled.div`
+  color: #7155a9;
+  font-weight: 700;
+  font-size: 26px;
+  width: 100%;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
 
+  margin-top: 20px;
+`;
