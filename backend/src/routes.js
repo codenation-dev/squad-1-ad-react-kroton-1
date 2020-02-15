@@ -13,6 +13,7 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 
 routes.get('/logs', LogController.index);
+routes.get('/logs/:log_id', LogController.show);
 routes.post('/logs', LogController.store);
 routes.put('/logs/:log_id', LogController.update);
 routes.delete('/logs/:log_id', LogController.delete);
