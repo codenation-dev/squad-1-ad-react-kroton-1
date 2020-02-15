@@ -17,7 +17,7 @@ export default function Routes() {
         component={() => <div>Error Create</div>}
         isPrivate
       />
-      <PrivateRoute path="/error/:id" component={ErrorDetail} isPrivate />
+      <PrivateRoute path="/error/:id" component={ErrorDetail}  isPrivate />
       <PrivateRoute
         exact
         path="/404"

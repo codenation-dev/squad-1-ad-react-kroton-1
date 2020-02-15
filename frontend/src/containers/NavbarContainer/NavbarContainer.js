@@ -4,6 +4,7 @@ import { MdExitToApp } from 'react-icons/md';
 import { Logo, Button } from '../../components';
 
 import logoUser from '../../img/avatar.png';
+import logoBugControl from '../../img/logoBugControl.png';
 import { Navbar, UserContainer, TitleContainer } from './NavbarStyle';
 import { signOut } from '../../store/ducks/auth';
 
@@ -16,21 +17,23 @@ function NavbarContainer() {
       <Logo small white />
       <TitleContainer>
         <h2>
-          BUG C
-          <img
-            src="https://i.pinimg.com/originals/b7/9d/a2/b79da21793843b4e27afe36d05714707.png"
+          <img 
+            id='logoBugControl'
+            src={logoBugControl}
             alt="bug"
+            
           />
-          NTROL
         </h2>
       </TitleContainer>
       <UserContainer>
         <div>
-          <img src={logoUser} alt="avatar" width="50" height="50" />
+          <img
+          id='logoUser' 
+          src={logoUser} alt="avatar"/>
         </div>
         <div>
-          <span>Olá {user.name}</span>
-          <span>{user.email}</span>
+          <span>Olá Usário</span>
+          <span>e-mail</span>
         </div>
         <div>
           <Button

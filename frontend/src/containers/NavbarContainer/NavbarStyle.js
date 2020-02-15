@@ -8,10 +8,7 @@ export const Navbar = styled.nav`
   padding: 1em 2em;
   color: #7155a9;
   border-bottom: 2px solid #7155a9;
-
-  h2 {
-    margin-top: 10px;
-  }
+ 
 `;
 
 export const UserContainer = styled.div`
@@ -24,10 +21,11 @@ export const UserContainer = styled.div`
     display: flex;
     flex-direction: column;
 
-    img {
+    #logoUser {
       width: 50px;
       border-radius: 50%;
     }
+    
   }
 `;
 
@@ -40,9 +38,11 @@ export const TitleContainer = styled.div`
     display: flex;
     flex-direction: column;
   }
-  img {
-    width: 30px;
 
-    margin-bottom: 15px;
+  #logoBugControl {
+    margin-left: 45%;
+    width: 30%;
+
   }
+
 `;
