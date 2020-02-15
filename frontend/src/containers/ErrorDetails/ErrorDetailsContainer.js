@@ -11,20 +11,28 @@ export default function ErrorDetailsContainer() {
 
   const url = window.location.href.split('/')
   const logId = url[4]
-  console.log(logId)
 
 
   useEffect(async () => {
 
-    const res = await api.get(`/error/id/${logId}`)
+    const res = await api.get(`/error/${logId}`)
 
     setLogDetails(res)
+
+    console.log(logDetails.log_id)
 
   },[])
 
 
-  async function handleClickBack(){
-    await history.push('/painel')
+  function handleClickBack(){
+    history.push('/painel')
+  }
+
+  async function handleDelete(){
+
+    const reqDelete = await api.put(`/logs/${logId}`)
+    history.push('/painel')
+
   }
 
   return (
@@ -32,8 +40,8 @@ export default function ErrorDetailsContainer() {
       <header id='header'>
 
         <div id='title'>
-          <span>Id do Log</span>
-          <span>Usuário: Paulo Beluci</span>
+          <span>{logDetails.log_environment}</span>
+          <span>{logDetails.user}</span>
         </div>
         <div id='button-exit'>
           <Button
@@ -49,12 +57,12 @@ export default function ErrorDetailsContainer() {
         
         <main id='main'>
           <p>Id</p>
-          <p>fdsjlkfjfsjfkdsjflks;jfsd
+          <p>{logDetails.log_id}
           </p>
           <p>Tipo</p>
-          <p>Warning</p>
+          <p>{logDetails.log_type}</p>
           <p>Descrição</p>
-          <p>fdsjlkfjfsjfkdsjflks;jfsd</p>        
+          <p>{logDetails.log_description}</p>        
         </main>
 
         <footer id='footer'>
@@ -73,6 +81,7 @@ export default function ErrorDetailsContainer() {
             text="Excluir"
             icon={<MdDeleteForever />}
             inverted
+            onClick={handleDelete}
             />
           </div>
           <span id='data-criacao'>Data Criação: 2019/20/20 - 20:10:20</span>

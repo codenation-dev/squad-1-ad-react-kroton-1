@@ -5,7 +5,7 @@ export const Container = styled.div`
   diplay: flex;
   flex-direction: row;
   height: 100%;
-  width: 80%;
+  width: 60%;
   background-color: #7155A9;
   border: 3px solid #fff;
   border-radius: 4px;
@@ -26,7 +26,8 @@ export const Container = styled.div`
 
     #button-exit{
       display: flex;
-    justify-content: flex-end;
+      justify-content: flex-end;
+    
     }
 
     button {
