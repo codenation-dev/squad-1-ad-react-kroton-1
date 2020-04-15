@@ -37,7 +37,6 @@ export const TitleContainer = styled.div`
 
     svg {
       align-items: center;
-      margin: 0px 30px;
       width: 30px;
       height: 30px;
     }
@@ -65,10 +64,10 @@ export const OpcaoAmbiente = styled.div`
   span {
     display: flex;
     flex-direction: row;
+  }
 
-    button {
-      background-color: #fff;
-    }
+  .active {
+    background-color: #333;
   }
 `;
 
