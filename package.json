@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "polished": "^3.4.4",
     "react-icons": "^3.9.0",
     "react-redux": "^7.1.3",
