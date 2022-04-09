@@ -9,7 +9,7 @@
     "axios": "^0.21.1",
     "history": "^4.10.1",
     "immer": "^8.0.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "polished": "^3.4.2",
     "react": "^16.12.0",
     "react-bootstrap": "^1.0.0-beta.16",
